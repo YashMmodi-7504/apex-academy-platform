@@ -10,7 +10,14 @@
   functions = "netlify/functions"
 
 [build.environment]
-  NODE_VERSION = "20"
+  # Node 22 for the build image, and AWS_LAMBDA_JS_RUNTIME for the Functions
+  # runtime — NODE_VERSION alone does not reliably set the Lambda runtime.
+  # Node 22 ships a global WebSocket, which supabase-js resolves eagerly when
+  # it constructs its RealtimeClient. The server client also stubs that
+  # transport (see src/backend/database/supabaseAdmin.ts), so the function no
+  # longer depends on the runtime version for this.
+  NODE_VERSION = "22"
+  AWS_LAMBDA_JS_RUNTIME = "nodejs22.x"
 
 [functions]
   # esbuild keeps the bundled function small and fast to cold-start.

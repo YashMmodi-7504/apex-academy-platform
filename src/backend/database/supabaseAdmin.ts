@@ -38,6 +38,33 @@ if (!rawKey || rawKey.trim().length === 0 || rawKey.trim() === 'YOUR_SUPABASE_SE
 const supabaseUrl = rawUrl!.trim();
 const supabaseServiceKey = rawKey.trim();
 
+/**
+ * Realtime transport stub.
+ *
+ * supabase-js always constructs a RealtimeClient inside createClient(), and
+ * RealtimeClient._initializeOptions resolves a WebSocket constructor eagerly:
+ *
+ *   result.transport = options?.transport ?? WebSocketFactory.getWebSocketConstructor()
+ *
+ * On a runtime without a global WebSocket (Node < 22) that factory throws
+ * "Node.js detected but native WebSocket not found", which crashed the whole
+ * Netlify Function at cold start and took every /api route down with it.
+ *
+ * Supplying `transport` short-circuits that lookup, so client construction no
+ * longer depends on the Node version. This server only performs PostgREST and
+ * auth calls over HTTP — it never opens a Realtime channel — so the stub is
+ * never instantiated. It throws if anything ever does, rather than failing
+ * silently.
+ */
+class UnsupportedRealtimeTransport {
+  constructor() {
+    throw new Error(
+      'Realtime/WebSocket is not supported in the server-side Supabase client. ' +
+        'This client is HTTP-only (PostgREST + auth).'
+    );
+  }
+}
+
 export const supabaseAdmin = createClient(
   supabaseUrl,
   supabaseServiceKey,
@@ -45,6 +72,10 @@ export const supabaseAdmin = createClient(
     auth: {
       autoRefreshToken: false,
       persistSession: false,
+    },
+    realtime: {
+      // See UnsupportedRealtimeTransport above.
+      transport: UnsupportedRealtimeTransport as any,
     },
   }
 );
