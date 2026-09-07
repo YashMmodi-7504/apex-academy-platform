@@ -1,0 +1,120 @@
+{
+  "$comment": "Apex Academy — canonical YouTube learning manifest. Source of truth for the course-wise video curriculum. Consumed by scripts/importYouTubeResources.ts (idempotent). Videos are attached to lessons via lessons.video_url; the LessonRenderer/YouTubeLessonPlayer already embed any lesson whose video_url is a YouTube URL. Domains map to categories/programs; specialisation courses are attached to a program via program_courses. No video is duplicated: a video shared by two domains lives once on a shared skill course, which both programs already include.",
+  "version": 1,
+  "playlists": [
+    {
+      "playlist_id": "PLOWRNl6YgsT79ezWdEhOjvK4D-cQfr7ys",
+      "domain": "data-analyst",
+      "note": "Provided as 24 individual watch URLs (index 2-25). Already decomposed into per-video lessons across excel-analytics-data-cleaning, sql-relational-databases, python-programming-fundamentals and statistics-data-analytics. Index 1 was not supplied."
+    },
+    {
+      "playlist_id": "PLwUdL9DpGWU0lhwp3WCxRsb1385KFTLYE",
+      "domain": "data-engineer",
+      "note": "Provided as 19 individual watch URLs (index 3-21). Already decomposed into per-video lessons across data-engineering-pipeline-architecture and shared foundation courses. Indices 1-2 were not supplied."
+    }
+  ],
+
+  "new_courses": [
+    {
+      "slug": "data-science-applied-track",
+      "title": "Data Science Applied Track",
+      "short_description": "End-to-end data science: the discipline, Python and pandas, exploratory analysis, statistics, machine learning theory and applied scikit-learn, closing with a full capstone.",
+      "difficulty": "INTERMEDIATE",
+      "attach_to_program_domain": "data-scientist",
+      "modules": [
+        { "order": 1, "title": "Data Science Demystified",                 "lessons": [ { "order": 1, "title": "Data Science Demystified",                 "video_id": "X3paOmcrTjQ" } ] },
+        { "order": 2, "title": "Python & Pandas",                          "lessons": [ { "order": 1, "title": "Python & Pandas for Data Science",         "video_id": "yIJrCFXs0rU" } ] },
+        { "order": 3, "title": "Exploratory Data Analysis (EDA)",          "lessons": [ { "order": 1, "title": "Exploratory Data Analysis (EDA)",         "video_id": "Liv6eeb1VfE" } ] },
+        { "order": 4, "title": "Intuitive Statistics",                     "lessons": [ { "order": 1, "title": "Intuitive Statistics for Data Science",   "video_id": "dGvcWkNI410" } ] },
+        { "order": 5, "title": "Machine Learning Theory",                  "lessons": [ { "order": 1, "title": "Machine Learning Theory",                 "video_id": "Gv9_4yMHFhI" } ] },
+        { "order": 6, "title": "Applied Machine Learning (Scikit-Learn)",  "lessons": [ { "order": 1, "title": "Applied Machine Learning with Scikit-Learn", "video_id": "0iGbDII-HqY" } ] },
+        { "order": 7, "title": "The Data Science Capstone Project",        "lessons": [ { "order": 1, "title": "Data Science Capstone Project",           "video_id": "fRllm4TGxbU" } ] }
+      ]
+    },
+    {
+      "slug": "ai-engineering-llm-systems",
+      "title": "AI Engineering & LLM Systems",
+      "short_description": "Build production LLM applications: transformer architecture, prompt engineering, embeddings and vector search, retrieval-augmented generation, agentic workflows and deployment.",
+      "difficulty": "ADVANCED",
+      "attach_to_program_domain": "ai-engineer",
+      "modules": [
+        { "order": 1, "title": "Domain Knowledge & LLM Architecture",      "lessons": [ { "order": 1, "title": "Intro to LLMs — The Complete Visual Breakdown", "video_id": "xTkkafyD0Q0" } ] },
+        { "order": 2, "title": "Prompt Engineering & API Orchestration",   "lessons": [ { "order": 1, "title": "Prompt Engineering — Full Course",        "video_id": "_ZvnD73m40o" } ] },
+        { "order": 3, "title": "Embeddings & Vector Databases",            "lessons": [ { "order": 1, "title": "Vector Embeddings for Beginners",         "video_id": "PR7xz5vQKGg" } ] },
+        { "order": 4, "title": "Retrieval-Augmented Generation (RAG)",     "lessons": [ { "order": 1, "title": "LangChain RAG Tutorial",                  "video_id": "SQCtfJohQcE" } ] },
+        { "order": 5, "title": "Agentic AI Fundamentals",                  "lessons": [ { "order": 1, "title": "LangGraph Crash Course — Agent Workflows", "video_id": "uWLJAtMOVT0" } ] },
+        { "order": 6, "title": "Building & Deploying the AI App",          "lessons": [ { "order": 1, "title": "LLM Web Apps with Python, LangChain & Streamlit", "video_id": "8Jh5MLotq_U" } ] }
+      ]
+    },
+    {
+      "slug": "ai-backend-engineering",
+      "title": "AI Backend Engineering",
+      "short_description": "Serve AI in production: FastAPI service design, LLM provider integration, structured outputs, response streaming, async task queues and containerised deployment.",
+      "difficulty": "ADVANCED",
+      "attach_to_program_domain": "ai-backend-engineer",
+      "modules": [
+        { "order": 1, "title": "AI System Design & Domain Overview",       "lessons": [ { "order": 1, "title": "AI System Design & Domain Overview",      "video_id": "iAfAXS1PRNU" } ] },
+        { "order": 2, "title": "API Fundamentals (FastAPI)",               "lessons": [ { "order": 1, "title": "API Fundamentals with FastAPI",          "video_id": "tLKKmouUams" } ] },
+        { "order": 3, "title": "Connecting the AI (OpenAI API)",           "lessons": [ { "order": 1, "title": "Connecting the AI — OpenAI API",         "video_id": "9REJ66cRlCM" } ] },
+        { "order": 4, "title": "Structured Outputs & JSON",                "lessons": [ { "order": 1, "title": "Structured Outputs & JSON Mode",         "video_id": "eJvYafgLh40" } ] },
+        { "order": 5, "title": "Streaming LLM Responses",                  "lessons": [ { "order": 1, "title": "Streaming LLM Responses",               "video_id": "i7GlWbAFDtY" } ] },
+        { "order": 6, "title": "Async Task Queues (Celery & Redis)",       "lessons": [ { "order": 1, "title": "Async Task Queues with Celery & Redis",  "video_id": "eAHAKowv6hk" } ] },
+        { "order": 7, "title": "Containerization (Docker)",                "lessons": [ { "order": 1, "title": "Containerization with Docker",           "video_id": "fy9whHwIgVQ" } ] }
+      ]
+    },
+    {
+      "slug": "etl-development-orchestration",
+      "title": "ETL Development & Orchestration",
+      "short_description": "Design and operate ETL pipelines: extraction with SQL, transformation in Python and pandas, warehouse loading with Snowflake, Airflow orchestration and an end-to-end pipeline build.",
+      "difficulty": "INTERMEDIATE",
+      "attach_to_program_domain": "etl-developer",
+      "modules": [
+        { "order": 1, "title": "ETL Domain Knowledge & Fundamentals",      "lessons": [ { "order": 1, "title": "ETL Fundamentals & Pipeline Concepts",   "video_id": "DyLQTzNlRUA" } ] },
+        { "order": 2, "title": "Database Extraction (SQL for ETL)",        "lessons": [ { "order": 1, "title": "Database Extraction with SQL",          "video_id": "uy8-0rX-RV8" } ] },
+        { "order": 3, "title": "Data Transformation (Python & Pandas)",    "lessons": [ { "order": 1, "title": "Data Transformation with Python & Pandas", "video_id": "G0crKzK9Ayk" } ] },
+        { "order": 4, "title": "Loading into Data Warehouses (Snowflake)", "lessons": [ { "order": 1, "title": "Loading into Snowflake",                "video_id": "eTlJNjTu_Ms" } ] },
+        { "order": 5, "title": "Workflow Orchestration (Apache Airflow)",  "lessons": [ { "order": 1, "title": "Workflow Orchestration with Airflow",   "video_id": "s-r2gEr7YW4" } ] },
+        { "order": 6, "title": "End-to-End ETL Pipeline",                  "lessons": [ { "order": 1, "title": "End-to-End ETL Pipeline Build",        "video_id": "BgiOmkXgpno" } ] }
+      ]
+    },
+    {
+      "slug": "bi-analytics-reporting",
+      "title": "BI Analytics & Reporting",
+      "short_description": "The analyst side of business intelligence: requirements and KPIs, SQL for analysis, Power Query transformation, star-schema modelling, DAX calculations, dashboard storytelling and publishing.",
+      "difficulty": "BEGINNER",
+      "attach_to_program_domain": "bi-analyst",
+      "modules": [
+        { "order": 1, "title": "BI Domain & Business Fundamentals",        "lessons": [ { "order": 1, "title": "BI Domain & Business Fundamentals",     "video_id": "NjA41hhnr18" } ] },
+        { "order": 2, "title": "Requirements Gathering & KPIs",            "lessons": [ { "order": 1, "title": "Requirements Gathering & KPI Definition", "video_id": "zFyEOX9DdsI" } ] },
+        { "order": 3, "title": "SQL for Data Analysts",                    "lessons": [ { "order": 1, "title": "SQL for Data Analysts",                 "video_id": "zpAGbu9mSL4" } ] },
+        { "order": 4, "title": "Data Transformation (Power Query)",        "lessons": [ { "order": 1, "title": "Data Transformation with Power Query",   "video_id": "QXzopqpHlSs" } ] },
+        { "order": 5, "title": "Data Modeling & Star Schema",              "lessons": [ { "order": 1, "title": "Data Modeling & Star Schema",           "video_id": "wKKxBjOJW3M" } ] },
+        { "order": 6, "title": "Business Calculations (DAX)",             "lessons": [ { "order": 1, "title": "Business Calculations with DAX",        "video_id": "rKreQw9JGvo" } ] },
+        { "order": 7, "title": "Dashboard UI & Data Storytelling",         "lessons": [ { "order": 1, "title": "Dashboard UI & Data Storytelling",      "video_id": "HuZiJ44_71M" } ] },
+        { "order": 8, "title": "End-to-End Capstone & Publishing",         "lessons": [ { "order": 1, "title": "End-to-End BI Capstone & Publishing",   "video_id": "WdCltDhmRLo" } ] }
+      ]
+    }
+  ],
+
+  "conflicts": [
+    {
+      "domain": "market-analytics-research",
+      "provided_module": "Module 5: Survey Design & Primary Data Collection",
+      "provided_video_id": "YfH24K_YjHw",
+      "provided_title": "Masterclass in Survey Design Best Practices (Sawtooth Software)",
+      "existing_lesson": "market-research-consumer-analytics / M5 Survey Design & Primary Data Collection / Survey Methodology & Primary Data Collection Best Practices",
+      "existing_video_id": "NBbY_blKEHQ",
+      "resolution": "UNRESOLVED",
+      "note": "The target lesson already holds a different video. The importer will NOT overwrite it. Choose: (a) replace existing with provided, (b) add the provided video as a second lesson in M5, or (c) keep existing and drop the provided one."
+    }
+  ],
+
+  "already_integrated_video_ids": [
+    "-I23qGB6JdY","kbKty5ZVKMY","mPnnygpy2lY","gP-AxNi6uxo","VaOhNqNtGGE","j8FSP8XuFyk","MxU_FYSSnYU","OCOFYrL884c",
+    "xprnaCdsKWE","gmvvaobm7eQ","a5ohOalv0RY","8jazNUpO3lQ","vsWrXfO3wWw","PHxYNGo8NcI","FB5EdxAGxQg","gJo0uNL-5Qw","EItlUEPCIzM","KfnhNlD8WZI",
+    "kFM72UJhW8s","yOh3Boo4aJo","wBxS2EqoanM","kdlSwA0NDK4","HJ0Iizq-vlg",
+    "z-T38QtwT6Q","uAHeTzmc_2g","6crwp4TYDS4","ar87MACUBao","exhxaMgw4Aw","PHyOTQ9T8rE",
+    "FMSJXtwt6hE","ZmjjsfNH5nE","9sHGgIcHVfQ","KIlw5Up2hnk","O9OUqf2y4LA","9EZaYqrcEDU","lbvQmIs6OHw","GfoqC_7ZmuQ","suN0rDob0FI","oHZ8udrINbM","zN5soLiX0BQ","wlx0DmLC5Ks","TlkPGxRWKhk","czDQqnQT3yQ","Z6ToYVvEi2o","sqsU-U5Pv50","b5VAPGy6FqM","N7Av1YwB1K4","bGg-xLx-S9s","PGnoRfGIqPM","UU8kTldG9pA","zzsR_7-Cg2s","yGL1RfPWBso","WorG8yK0iEY",
+    "5U-BbZ9G_xU","dWj8VeBEQCc","emQM9gYh0Io","nyu-8Si21ec","XWaJFretFec","8J1uOJI2HFE","DQefW9sNmw0","3R-SLYK-P_0","JriG4d9o2Mk","QH1339Fy40Y","JiedBnTFCeg","ja7VOqDVkuo","dzB0HMtMIfI","EIOZY3tMIVg","7O7DH0ux0x4","XD2b8V_RfFc","ZRmBIktFyDI","nt38LZhk7jQ","lvR0uDQb3s0"
+  ]
+}

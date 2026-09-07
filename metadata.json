@@ -1,0 +1,6 @@
+{
+  "name": "Apex Academy LMS",
+  "description": "Comprehensive EdTech Learning & Certification Platform inspired by Great Learning with student learning workflows, assessments, downloadable certificates, and admin management.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
