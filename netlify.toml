@@ -1,0 +1,35 @@
+# Netlify deployment configuration for Apex Academy LMS.
+#
+# The SPA is built by Vite into dist/. The existing Express API is reused
+# unchanged inside a single Netlify Function (netlify/functions/api.ts), so
+# the frontend keeps calling relative /api/* paths in every environment.
+
+[build]
+  command = "npm run build:client"
+  publish = "dist"
+  functions = "netlify/functions"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[functions]
+  # esbuild keeps the bundled function small and fast to cold-start.
+  node_bundler = "esbuild"
+  # Bundle these rather than relying on Netlify's node_modules resolution.
+  external_node_modules = ["pg", "pdf-parse"]
+
+# ---- API ----------------------------------------------------------------
+# Must come before the SPA fallback, otherwise /api/* would return index.html.
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
+  force = true
+
+# ---- SPA fallback -------------------------------------------------------
+# Direct navigation and refresh on client-side routes (/free-courses,
+# /programs/*, /learn/*, /verify/*, …) must serve index.html, not a 404.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
