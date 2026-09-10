@@ -3,6 +3,7 @@ import { LessonResources } from './LessonResources.tsx';
 import { YouTubeLessonPlayer } from './YouTubeLessonPlayer.tsx';
 import { getAuthTokenAsync } from '../../lib/supabaseClient.ts';
 import { sanitizeLessonHtml, looksLikeHtml } from '../../utils/sanitizeHtml.ts';
+import { formatLessonDuration } from '../../utils/duration.ts';
 import {
   Play,
   CheckCircle2,
@@ -364,10 +365,10 @@ export const LessonRenderer: React.FC<LessonRendererProps> = ({
             <span className="text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded" style={{ background: '#eef2ff', color: '#4f46e5' }}>
               {lesson.lesson_type}
             </span>
-            {lesson.duration_seconds && lesson.duration_seconds > 0 && (
+            {formatLessonDuration(lesson.duration_seconds) && (
               <span className="text-xs text-slate-500 flex items-center gap-1">
                 <Clock className="w-3 h-3" />
-                {Math.round(lesson.duration_seconds / 60)} min
+                {formatLessonDuration(lesson.duration_seconds)}
               </span>
             )}
           </div>

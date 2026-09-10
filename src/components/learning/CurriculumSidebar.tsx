@@ -13,6 +13,7 @@ import {
   ChevronLeft,
   ChevronRight,
 } from 'lucide-react';
+import { formatLessonDuration } from '../../utils/duration.ts';
 
 interface LessonItem {
   id: string;
@@ -226,8 +227,8 @@ export const CurriculumSidebar: React.FC<CurriculumSidebarProps> = ({
                             <span className="capitalize">
                               {(lesson.lesson_type || '').toLowerCase()}
                             </span>
-                            {!!lesson.duration_seconds && lesson.duration_seconds > 0 && (
-                              <span>· {Math.round(lesson.duration_seconds / 60)} min</span>
+                            {formatLessonDuration(lesson.duration_seconds) && (
+                              <span>· {formatLessonDuration(lesson.duration_seconds)}</span>
                             )}
                           </span>
                         </span>

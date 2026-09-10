@@ -1,0 +1,906 @@
+{
+ "$comment": "Authoritative YouTube durations. Harvested via the YouTube IFrame Player API (player.getDuration()) against each INDIVIDUAL video id — the same playback mechanism the LMS uses. No API key, no playlists. Regenerate with scripts/syncVideoDurations.ts --harvest. Values are integer seconds.",
+ "generated_at": "2026-09-07",
+ "method": "youtube-iframe-api:getDuration",
+ "total": 112,
+ "verified": 112,
+ "unverified": 0,
+ "lessons": [
+  {
+   "lesson_id": "18064cf9-06a6-4b1f-a772-67a7e8b9dc01",
+   "lesson_title": "Exploratory Data Analysis (EDA) in Python",
+   "course": "Python Programming Fundamentals",
+   "youtube_video_id": "Z6ToYVvEi2o",
+   "previous_duration_seconds": 900,
+   "duration_seconds": 1236
+  },
+  {
+   "lesson_id": "09408540-c301-440e-a318-0a4b7a7f8e08",
+   "lesson_title": "Getting Started with SQL: Core Concepts & Fundamentals",
+   "course": "SQL & Relational Databases",
+   "youtube_video_id": "kbKty5ZVKMY",
+   "previous_duration_seconds": 600,
+   "duration_seconds": 1060
+  },
+  {
+   "lesson_id": "0be0cb5c-77a7-4431-b968-f6496bfc29fc",
+   "lesson_title": "What is Business Intelligence?",
+   "course": "Data & Database Fundamentals",
+   "youtube_video_id": "-I23qGB6JdY",
+   "previous_duration_seconds": 900,
+   "duration_seconds": 384
+  },
+  {
+   "lesson_id": "6328091d-92c8-4950-82ee-b0fa5eea861e",
+   "lesson_title": "Practical Python Data Analytics Project",
+   "course": "Python Programming Fundamentals",
+   "youtube_video_id": "Zt9nZRsI2VU",
+   "previous_duration_seconds": 900,
+   "duration_seconds": 3118
+  },
+  {
+   "lesson_id": "61727312-cc9c-4187-be82-ca8f4d404b09",
+   "lesson_title": "SQL Aggregations with GROUP BY",
+   "course": "SQL & Relational Databases",
+   "youtube_video_id": "oHZ8udrINbM",
+   "previous_duration_seconds": 900,
+   "duration_seconds": 1176
+  },
+  {
+   "lesson_id": "34096247-0cb3-4599-818d-486ee2cbc26b",
+   "lesson_title": "Primary Keys, Foreign Keys & Database Constraints",
+   "course": "SQL & Relational Databases",
+   "youtube_video_id": "wlx0DmLC5Ks",
+   "previous_duration_seconds": 900,
+   "duration_seconds": 2977
+  },
+  {
+   "lesson_id": "0a8232d2-1004-4e81-87c2-612b28502572",
+   "lesson_title": "Data Collection & Pipeline Architectures",
+   "course": "SQL & Relational Databases",
+   "youtube_video_id": "PGnoRfGIqPM",
+   "previous_duration_seconds": 900,
+   "duration_seconds": 3190
+  },
+  {
+   "lesson_id": "644bade8-3dc5-4cb4-8bd0-7764dc0cac8a",
+   "lesson_title": "SQL Basics & Fundamental Syntax",
+   "course": "SQL & Relational Databases",
+   "youtube_video_id": "lbvQmIs6OHw",
+   "previous_duration_seconds": 900,
+   "duration_seconds": 3240
+  },
+  {
+   "lesson_id": "013628cf-ee2d-466b-a811-b7ce30120836",
+   "lesson_title": "SQL DML Statements & Sorting Results",
+   "course": "SQL & Relational Databases",
+   "youtube_video_id": "suN0rDob0FI",
+   "previous_duration_seconds": 900,
+   "duration_seconds": 2301
+  },
+  {
+   "lesson_id": "419abc4a-f655-4b4a-b0a1-61708ac3ab6d",
+   "lesson_title": "AI-Augmented Data Analytics Project Execution",
+   "course": "Python Programming Fundamentals",
+   "youtube_video_id": "yGL1RfPWBso",
+   "previous_duration_seconds": 900,
+   "duration_seconds": 1217
+  },
+  {
+   "lesson_id": "ce468534-5fe5-49a0-878b-9a41b980970e",
+   "lesson_title": "Modern Data Warehouse & Analytics Architectures",
+   "course": "SQL & Relational Databases",
+   "youtube_video_id": "UU8kTldG9pA",
+   "previous_duration_seconds": 900,
+   "duration_seconds": 2061
+  },
+  {
+   "lesson_id": "00fd4e4d-83a4-468f-bc6d-5bd0733a5107",
+   "lesson_title": "Building Data Analytics Libraries in Python",
+   "course": "Python Programming Fundamentals",
+   "youtube_video_id": "zzsR_7-Cg2s",
+   "previous_duration_seconds": 900,
+   "duration_seconds": 2285
+  },
+  {
+   "lesson_id": "f0206c0a-0100-0000-0000-000000000000",
+   "lesson_title": "Introduction to Linear Regression & Modeling",
+   "course": "Statistics for Data & Analytics",
+   "youtube_video_id": "a5ohOalv0RY",
+   "previous_duration_seconds": 720,
+   "duration_seconds": 1473
+  },
+  {
+   "lesson_id": "f0206c0a-0400-0000-0000-000000000000",
+   "lesson_title": "Slope, Intercept, & Regression Equation",
+   "course": "Statistics for Data & Analytics",
+   "youtube_video_id": "8jazNUpO3lQ",
+   "previous_duration_seconds": 720,
+   "duration_seconds": 914
+  },
+  {
+   "lesson_id": "abf68f4d-ef5d-4f0f-a4f0-a7815b016169",
+   "lesson_title": "SQL For Business Analysts",
+   "course": "SQL & Relational Databases",
+   "youtube_video_id": "exhxaMgw4Aw",
+   "previous_duration_seconds": 1200,
+   "duration_seconds": 157
+  },
+  {
+   "lesson_id": "49b10fbc-07d7-444f-8ad7-d934042193af",
+   "lesson_title": "Data Ingestion & Cleaning in Power Query",
+   "course": "Business Intelligence & Dashboard Engineering",
+   "youtube_video_id": "gP-AxNi6uxo",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 787
+  },
+  {
+   "lesson_id": "6a9a659e-dc34-477d-a6b4-32647347402a",
+   "lesson_title": "Building Interactive Dashboards in Power BI",
+   "course": "Business Intelligence & Dashboard Engineering",
+   "youtube_video_id": "VaOhNqNtGGE",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 731
+  },
+  {
+   "lesson_id": "e14bc4df-3ed7-432b-a309-50044863e775",
+   "lesson_title": "Visual Analytics & Dashboard Creation in Tableau",
+   "course": "Business Intelligence & Dashboard Engineering",
+   "youtube_video_id": "j8FSP8XuFyk",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 5410
+  },
+  {
+   "lesson_id": "0ed3b3a7-f4b5-48d4-bf90-0f080d6a2880",
+   "lesson_title": "Implementing Row-Level Security (RLS) in Power BI",
+   "course": "Business Intelligence & Dashboard Engineering",
+   "youtube_video_id": "MxU_FYSSnYU",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 304
+  },
+  {
+   "lesson_id": "082bcfb5-9d70-48be-9d21-88225491111b",
+   "lesson_title": "Retail BI Dashboard Capstone Execution",
+   "course": "Business Intelligence & Dashboard Engineering",
+   "youtube_video_id": "OCOFYrL884c",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 1324
+  },
+  {
+   "lesson_id": "dfbc5d3f-3a52-4a40-85af-adf181e8936c",
+   "lesson_title": "Foundations of Machine Learning & Lifecycle",
+   "course": "Applied Machine Learning & MLOps",
+   "youtube_video_id": "xprnaCdsKWE",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 1035
+  },
+  {
+   "lesson_id": "5115b268-f404-452b-aab4-1fa98deedef7",
+   "lesson_title": "Python Machine Learning Environment Setup",
+   "course": "Applied Machine Learning & MLOps",
+   "youtube_video_id": "gmvvaobm7eQ",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 411
+  },
+  {
+   "lesson_id": "e62708f7-ee8e-4e4a-87a7-53d194ec1e3a",
+   "lesson_title": "Implementing Gradient Descent from Scratch in Python",
+   "course": "Applied Machine Learning & MLOps",
+   "youtube_video_id": "vsWrXfO3wWw",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 1706
+  },
+  {
+   "lesson_id": "72a14d5e-845e-4a7b-a61f-a43f95612001",
+   "lesson_title": "Decision Tree Classification & Information Gain",
+   "course": "Applied Machine Learning & MLOps",
+   "youtube_video_id": "PHxYNGo8NcI",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 886
+  },
+  {
+   "lesson_id": "324babb1-b52a-4a4c-8d12-9151968d177a",
+   "lesson_title": "Support Vector Machines (SVM) & Kernel Tricks",
+   "course": "Applied Machine Learning & MLOps",
+   "youtube_video_id": "FB5EdxAGxQg",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 1402
+  },
+  {
+   "lesson_id": "b9069780-0d54-4baf-b4e9-9b7a47e64b10",
+   "lesson_title": "Model Evaluation with K-Fold Cross Validation",
+   "course": "Applied Machine Learning & MLOps",
+   "youtube_video_id": "gJo0uNL-5Qw",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 1520
+  },
+  {
+   "lesson_id": "106a2574-4271-4743-ac2e-c7d9a835ddf2",
+   "lesson_title": "K-Means Clustering & Unsupervised Feature Grouping",
+   "course": "Applied Machine Learning & MLOps",
+   "youtube_video_id": "EItlUEPCIzM",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 1515
+  },
+  {
+   "lesson_id": "425f7d4d-2ead-4f9c-8728-d31d9796b322",
+   "lesson_title": "Model Serialization with Joblib & Pickle for Deployment",
+   "course": "Applied Machine Learning & MLOps",
+   "youtube_video_id": "KfnhNlD8WZI",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 501
+  },
+  {
+   "lesson_id": "44110c51-9b40-41bd-bedd-985c082067a3",
+   "lesson_title": "Market Research 101 & Strategic Frameworks",
+   "course": "Market Research & Consumer Analytics",
+   "youtube_video_id": "kFM72UJhW8s",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 649
+  },
+  {
+   "lesson_id": "8b8ebf26-044c-400a-b5e6-5a9592c96842",
+   "lesson_title": "Market Sizing & TAM SAM SOM Financial Calculation",
+   "course": "Market Research & Consumer Analytics",
+   "youtube_video_id": "yOh3Boo4aJo",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 689
+  },
+  {
+   "lesson_id": "ac13c812-5487-4ff1-8eaa-8bcd15d6f16c",
+   "lesson_title": "Competitive Intelligence & Benchmarking Matrix",
+   "course": "Market Research & Consumer Analytics",
+   "youtube_video_id": "wBxS2EqoanM",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 193
+  },
+  {
+   "lesson_id": "dfeb7704-f479-4cb6-ae84-f564c5794404",
+   "lesson_title": "Customer Segmentation & Ideal Customer Profiles (ICP)",
+   "course": "Market Research & Consumer Analytics",
+   "youtube_video_id": "kdlSwA0NDK4",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 298
+  },
+  {
+   "lesson_id": "65069448-7c46-45cb-a5f4-78c4f5c818cf",
+   "lesson_title": "End-to-End Market Research Capstone Synthesis",
+   "course": "Market Research & Consumer Analytics",
+   "youtube_video_id": "HJ0Iizq-vlg",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 533
+  },
+  {
+   "lesson_id": "7d05a494-1021-447a-b077-682df168a926",
+   "lesson_title": "Introduction to IT Business Analysis & SDLC",
+   "course": "IT Business Analysis & Systems Architecture",
+   "youtube_video_id": "z-T38QtwT6Q",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 3522
+  },
+  {
+   "lesson_id": "14159853-c0c9-42ff-ac1f-2ab3b7ed1309",
+   "lesson_title": "Requirements Elicitation & Stakeholder Frameworks",
+   "course": "IT Business Analysis & Systems Architecture",
+   "youtube_video_id": "uAHeTzmc_2g",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 523
+  },
+  {
+   "lesson_id": "12c76b8e-3931-47ad-ac11-8dd9e6391158",
+   "lesson_title": "Process Modeling with UML Use Case Diagrams",
+   "course": "IT Business Analysis & Systems Architecture",
+   "youtube_video_id": "6crwp4TYDS4",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 362
+  },
+  {
+   "lesson_id": "d97ea7fd-3eb7-4080-9705-966a2666a197",
+   "lesson_title": "API Integration Architecture & Telemetry for Analysts",
+   "course": "IT Business Analysis & Systems Architecture",
+   "youtube_video_id": "ar87MACUBao",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 3618
+  },
+  {
+   "lesson_id": "79a2ccf9-7e68-43bb-9f2f-10f932e2e3bc",
+   "lesson_title": "Agile Scrum Delivery & User Story Architecture",
+   "course": "IT Business Analysis & Systems Architecture",
+   "youtube_video_id": "PHyOTQ9T8rE",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 1598
+  },
+  {
+   "lesson_id": "f0206c01-0800-0000-0000-000000000000",
+   "lesson_title": "Practical: Classifying Analytics Datasets",
+   "course": "Statistics for Data & Analytics",
+   "youtube_video_id": "9cf9UbZSM-k",
+   "previous_duration_seconds": 900,
+   "duration_seconds": 5375
+  },
+  {
+   "lesson_id": "f0206c0b-0100-0000-0000-000000000000",
+   "lesson_title": "Case Study Intro: Business Problem & Data Audit",
+   "course": "Statistics for Data & Analytics",
+   "youtube_video_id": "WorG8yK0iEY",
+   "previous_duration_seconds": 720,
+   "duration_seconds": 2863
+  },
+  {
+   "lesson_id": "57f55c06-1aa1-4bce-b8c0-ed001c308d4b",
+   "lesson_title": "Excel Beginner to Advanced Foundations",
+   "course": "Excel Analytics & Advanced Data Cleaning",
+   "youtube_video_id": "FMSJXtwt6hE",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 1392
+  },
+  {
+   "lesson_id": "48b50ab1-cb63-4a7c-b2e7-08f8f6716115",
+   "lesson_title": "Building Executive Dashboards in Excel",
+   "course": "Excel Analytics & Advanced Data Cleaning",
+   "youtube_video_id": "KIlw5Up2hnk",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 1509
+  },
+  {
+   "lesson_id": "0e53047a-4d52-437c-afc6-f61e3ffb3471",
+   "lesson_title": "Data Engineering Principles & Architecture",
+   "course": "Data Engineering & Pipeline Architecture",
+   "youtube_video_id": "5U-BbZ9G_xU",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 2597
+  },
+  {
+   "lesson_id": "8b01abcf-2729-46a4-a4d1-925c1691a282",
+   "lesson_title": "Python Programming & Data Structures for Pipelines",
+   "course": "Data Engineering & Pipeline Architecture",
+   "youtube_video_id": "emQM9gYh0Io",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 2426
+  },
+  {
+   "lesson_id": "0312a1e4-4500-4237-a74e-e9f5758ebbdc",
+   "lesson_title": "PySpark DataFrames & Large-Scale Transformation",
+   "course": "Data Engineering & Pipeline Architecture",
+   "youtube_video_id": "ja7VOqDVkuo",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 1656
+  },
+  {
+   "lesson_id": "bcbf9f58-0a0a-4d8e-966f-65240b22f65d",
+   "lesson_title": "AWS Redshift Cloud Data Warehousing",
+   "course": "Data Engineering & Pipeline Architecture",
+   "youtube_video_id": "XD2b8V_RfFc",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 3176
+  },
+  {
+   "lesson_id": "b1db380b-3991-464a-bb14-fee5c2d6f593",
+   "lesson_title": "Docker & Containerization for Pipeline Deployment",
+   "course": "Data Engineering & Pipeline Architecture",
+   "youtube_video_id": "nt38LZhk7jQ",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 8683
+  },
+  {
+   "lesson_id": "b5d379be-083c-4cc9-92b3-9cef50211e67",
+   "lesson_title": "Excel Formulas & Functions Masterclass",
+   "course": "Excel Analytics & Advanced Data Cleaning",
+   "youtube_video_id": "ZmjjsfNH5nE",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 2729
+  },
+  {
+   "lesson_id": "4aa68810-0990-48e9-b081-992ae15c28a1",
+   "lesson_title": "Python Fundamentals & Syntax Introduction",
+   "course": "Python Programming Fundamentals",
+   "youtube_video_id": "TlkPGxRWKhk",
+   "previous_duration_seconds": 900,
+   "duration_seconds": 2579
+  },
+  {
+   "lesson_id": "19211484-4c2f-41f4-9868-0dd3c4f203ce",
+   "lesson_title": "Spreadsheet Analytics Capstone Execution",
+   "course": "Excel Analytics & Advanced Data Cleaning",
+   "youtube_video_id": "O9OUqf2y4LA",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 3572
+  },
+  {
+   "lesson_id": "15e8e792-7e9e-4299-bd5c-e2520e2c792e",
+   "lesson_title": "PostgreSQL Administration & Schema Optimization",
+   "course": "Data Engineering & Pipeline Architecture",
+   "youtube_video_id": "XWaJFretFec",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 2048
+  },
+  {
+   "lesson_id": "a17843f6-5279-4b27-9649-d623128267a3",
+   "lesson_title": "Snowflake Cloud Data Platform & Architecture",
+   "course": "Data Engineering & Pipeline Architecture",
+   "youtube_video_id": "DQefW9sNmw0",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 13914
+  },
+  {
+   "lesson_id": "5fb09598-c1a5-4f36-af0c-551452d34cf4",
+   "lesson_title": "Mastering Relational SQL Joins",
+   "course": "SQL & Relational Databases",
+   "youtube_video_id": "zN5soLiX0BQ",
+   "previous_duration_seconds": 900,
+   "duration_seconds": 3568
+  },
+  {
+   "lesson_id": "a7d63ade-6afc-451e-8b90-87924c8ceb02",
+   "lesson_title": "Advanced SQL Analytical Querying with GenAI Asserts",
+   "course": "SQL & Relational Databases",
+   "youtube_video_id": "N7Av1YwB1K4",
+   "previous_duration_seconds": 900,
+   "duration_seconds": 1118
+  },
+  {
+   "lesson_id": "2b7684b8-b855-4d6a-a382-4a6863e4d009",
+   "lesson_title": "Apache Airflow DAG Authoring & Orchestration",
+   "course": "Data Engineering & Pipeline Architecture",
+   "youtube_video_id": "JriG4d9o2Mk",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 4217
+  },
+  {
+   "lesson_id": "5aea7c7c-7233-48d3-959d-3e83f7322cc7",
+   "lesson_title": "Apache Spark & PySpark Architecture Essentials",
+   "course": "Data Engineering & Pipeline Architecture",
+   "youtube_video_id": "JiedBnTFCeg",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 4727
+  },
+  {
+   "lesson_id": "5766ef0b-74d3-41bc-bba3-d323b02dc154",
+   "lesson_title": "Real-Time Streaming Systems & Apache Kafka",
+   "course": "Data Engineering & Pipeline Architecture",
+   "youtube_video_id": "dzB0HMtMIfI",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 9696
+  },
+  {
+   "lesson_id": "efe95e80-70e9-4920-b3a8-a6def9070511",
+   "lesson_title": "AWS S3, Glue Data Catalog & Athena Data Lakes",
+   "course": "Data Engineering & Pipeline Architecture",
+   "youtube_video_id": "7O7DH0ux0x4",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 4745
+  },
+  {
+   "lesson_id": "ff15f4ff-fa05-47fd-b765-7c783dfe4cb5",
+   "lesson_title": "dbt (Data Build Tool) Analytics Engineering",
+   "course": "Data Engineering & Pipeline Architecture",
+   "youtube_video_id": "ZRmBIktFyDI",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 9446
+  },
+  {
+   "lesson_id": "fa8410b5-094f-4574-9d0d-1f2a6559073e",
+   "lesson_title": "End-to-End Cloud Data Pipeline Capstone Execution",
+   "course": "Data Engineering & Pipeline Architecture",
+   "youtube_video_id": "lvR0uDQb3s0",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 6581
+  },
+  {
+   "lesson_id": "f0206c01-0400-0000-0000-000000000000",
+   "lesson_title": "Population vs Sample Foundations",
+   "course": "Statistics for Data & Analytics",
+   "youtube_video_id": "bGg-xLx-S9s",
+   "previous_duration_seconds": 720,
+   "duration_seconds": 2932
+  },
+  {
+   "lesson_id": "96f460f5-b877-48ab-999f-bca439818197",
+   "lesson_title": "Pivot Tables & Summarization Masterclass",
+   "course": "Excel Analytics & Advanced Data Cleaning",
+   "youtube_video_id": "9sHGgIcHVfQ",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 3504
+  },
+  {
+   "lesson_id": "25b29166-e9a2-435b-9447-7017d773993a",
+   "lesson_title": "Advanced Power Query Data Transformation",
+   "course": "Excel Analytics & Advanced Data Cleaning",
+   "youtube_video_id": "9EZaYqrcEDU",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 3809
+  },
+  {
+   "lesson_id": "bde5647b-9e25-4f21-a91f-51c0d55f42f1",
+   "lesson_title": "Linux Command Line & Scripting for DE",
+   "course": "Data Engineering & Pipeline Architecture",
+   "youtube_video_id": "dWj8VeBEQCc",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 2477
+  },
+  {
+   "lesson_id": "e0d0032d-bf70-4014-aa8e-cfca2652f65c",
+   "lesson_title": "Relational DB Design & SQL Optimization for DE",
+   "course": "Data Engineering & Pipeline Architecture",
+   "youtube_video_id": "nyu-8Si21ec",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 2739
+  },
+  {
+   "lesson_id": "596c226f-8b1d-4fa5-acef-a854126652e3",
+   "lesson_title": "Data Warehousing & Dimensional Modeling",
+   "course": "Data Engineering & Pipeline Architecture",
+   "youtube_video_id": "8J1uOJI2HFE",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 2775
+  },
+  {
+   "lesson_id": "69a1b6e0-5461-4920-a8ab-b57ae565b4b1",
+   "lesson_title": "ETL/ELT Pipeline Design & Batch Processing",
+   "course": "Data Engineering & Pipeline Architecture",
+   "youtube_video_id": "3R-SLYK-P_0",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 4502
+  },
+  {
+   "lesson_id": "66b1f992-2993-456a-be4e-3d99287d68de",
+   "lesson_title": "Distributed Systems & Big Data Fundamentals",
+   "course": "Data Engineering & Pipeline Architecture",
+   "youtube_video_id": "QH1339Fy40Y",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 4138
+  },
+  {
+   "lesson_id": "bd0353f1-e46b-4c4b-b2bd-9feaac8ba201",
+   "lesson_title": "AWS Cloud Data Engineering Essentials",
+   "course": "Data Engineering & Pipeline Architecture",
+   "youtube_video_id": "EIOZY3tMIVg",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 5235
+  },
+  {
+   "lesson_id": "c7285860-13cd-45b9-8f6e-8f10b8b2d5ae",
+   "lesson_title": "Survey Methodology & Primary Data Collection Best Practices",
+   "course": "Market Research & Consumer Analytics",
+   "youtube_video_id": "NBbY_blKEHQ",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 758
+  },
+  {
+   "lesson_id": "cddcd831-ac33-49e6-913a-ae3fdd0b3ad7",
+   "lesson_title": "Data Science Demystified",
+   "course": "Data Science Applied Track",
+   "youtube_video_id": "X3paOmcrTjQ",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 278
+  },
+  {
+   "lesson_id": "dcc3d1f8-2e37-47cf-85f0-97db1993085f",
+   "lesson_title": "Python & Pandas for Data Science",
+   "course": "Data Science Applied Track",
+   "youtube_video_id": "yIJrCFXs0rU",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 2589
+  },
+  {
+   "lesson_id": "07da206d-02fa-4ae3-9ae7-9a333d27e497",
+   "lesson_title": "Exploratory Data Analysis (EDA)",
+   "course": "Data Science Applied Track",
+   "youtube_video_id": "Liv6eeb1VfE",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 1933
+  },
+  {
+   "lesson_id": "744470cd-233c-4e89-a412-9ff5294e1d3b",
+   "lesson_title": "Intuitive Statistics for Data Science",
+   "course": "Data Science Applied Track",
+   "youtube_video_id": "dGvcWkNI410",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 2711
+  },
+  {
+   "lesson_id": "bf1e783d-f97d-4af3-8a04-7e946c4efcea",
+   "lesson_title": "Machine Learning Theory",
+   "course": "Data Science Applied Track",
+   "youtube_video_id": "Gv9_4yMHFhI",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 765
+  },
+  {
+   "lesson_id": "631acf2a-0a6c-452a-829d-e917b2fb4fe0",
+   "lesson_title": "Applied Machine Learning with Scikit-Learn",
+   "course": "Data Science Applied Track",
+   "youtube_video_id": "0iGbDII-HqY",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 4079
+  },
+  {
+   "lesson_id": "58b4d6fa-0cc6-49b9-8b6c-8e628957f2ab",
+   "lesson_title": "Data Science Capstone Project",
+   "course": "Data Science Applied Track",
+   "youtube_video_id": "fRllm4TGxbU",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 3144
+  },
+  {
+   "lesson_id": "69c3dd35-2d06-4b34-80ed-05b6cc29aac7",
+   "lesson_title": "Intro to LLMs — The Complete Visual Breakdown",
+   "course": "AI Engineering & LLM Systems",
+   "youtube_video_id": "xTkkafyD0Q0",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 845
+  },
+  {
+   "lesson_id": "33f6a864-2477-40b0-ac0a-00c032982245",
+   "lesson_title": "Prompt Engineering — Full Course",
+   "course": "AI Engineering & LLM Systems",
+   "youtube_video_id": "_ZvnD73m40o",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 2496
+  },
+  {
+   "lesson_id": "2b315553-bc02-4d32-af19-0281707c11e1",
+   "lesson_title": "Vector Embeddings for Beginners",
+   "course": "AI Engineering & LLM Systems",
+   "youtube_video_id": "PR7xz5vQKGg",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 2156
+  },
+  {
+   "lesson_id": "95e9de24-bd93-4790-88d6-c981331573fc",
+   "lesson_title": "LangChain RAG Tutorial",
+   "course": "AI Engineering & LLM Systems",
+   "youtube_video_id": "SQCtfJohQcE",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 2480
+  },
+  {
+   "lesson_id": "06529bfd-3e31-4e0f-824a-67c6797897ff",
+   "lesson_title": "LangGraph Crash Course — Agent Workflows",
+   "course": "AI Engineering & LLM Systems",
+   "youtube_video_id": "uWLJAtMOVT0",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 3193
+  },
+  {
+   "lesson_id": "9b6872b1-522b-44e8-bb17-5e5db681908e",
+   "lesson_title": "LLM Web Apps with Python, LangChain & Streamlit",
+   "course": "AI Engineering & LLM Systems",
+   "youtube_video_id": "8Jh5MLotq_U",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 865
+  },
+  {
+   "lesson_id": "b214517f-acfa-4cdd-9282-8b9fd3177326",
+   "lesson_title": "AI System Design & Domain Overview",
+   "course": "AI Backend Engineering",
+   "youtube_video_id": "iAfAXS1PRNU",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 776
+  },
+  {
+   "lesson_id": "70c4cd71-418a-48b6-a907-12ed160c7502",
+   "lesson_title": "API Fundamentals with FastAPI",
+   "course": "AI Backend Engineering",
+   "youtube_video_id": "tLKKmouUams",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 3873
+  },
+  {
+   "lesson_id": "067d7672-8377-4ca7-863c-ee231a80c153",
+   "lesson_title": "Connecting the AI — OpenAI API",
+   "course": "AI Backend Engineering",
+   "youtube_video_id": "9REJ66cRlCM",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 3824
+  },
+  {
+   "lesson_id": "5ecdb730-4ec1-49ff-926b-e91ff754f2f7",
+   "lesson_title": "Structured Outputs & JSON Mode",
+   "course": "AI Backend Engineering",
+   "youtube_video_id": "eJvYafgLh40",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 838
+  },
+  {
+   "lesson_id": "f0fa98a1-094c-4a81-b642-226e4e5526c0",
+   "lesson_title": "Streaming LLM Responses",
+   "course": "AI Backend Engineering",
+   "youtube_video_id": "i7GlWbAFDtY",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 612
+  },
+  {
+   "lesson_id": "e53030bd-4afb-4c44-b302-73a76ac45d45",
+   "lesson_title": "Async Task Queues with Celery & Redis",
+   "course": "AI Backend Engineering",
+   "youtube_video_id": "eAHAKowv6hk",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 2702
+  },
+  {
+   "lesson_id": "241b7456-aef1-44c3-bed0-9ae63fed4156",
+   "lesson_title": "Containerization with Docker",
+   "course": "AI Backend Engineering",
+   "youtube_video_id": "fy9whHwIgVQ",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 3695
+  },
+  {
+   "lesson_id": "79af7d5e-37d9-4cb7-b51c-893682d73748",
+   "lesson_title": "ETL Fundamentals & Pipeline Concepts",
+   "course": "ETL Development & Orchestration",
+   "youtube_video_id": "DyLQTzNlRUA",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 266
+  },
+  {
+   "lesson_id": "0bd8a381-7c42-47e5-a3a7-8b26ba119774",
+   "lesson_title": "Database Extraction with SQL",
+   "course": "ETL Development & Orchestration",
+   "youtube_video_id": "uy8-0rX-RV8",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 313
+  },
+  {
+   "lesson_id": "a52d5842-1865-418b-816b-287f3236f190",
+   "lesson_title": "Data Transformation with Python & Pandas",
+   "course": "ETL Development & Orchestration",
+   "youtube_video_id": "G0crKzK9Ayk",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 3034
+  },
+  {
+   "lesson_id": "55062ec3-9734-496e-bbba-6aa512fad95b",
+   "lesson_title": "Loading into Snowflake",
+   "course": "ETL Development & Orchestration",
+   "youtube_video_id": "eTlJNjTu_Ms",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 2552
+  },
+  {
+   "lesson_id": "811aedfb-4f78-4353-a661-4bc78eec3eff",
+   "lesson_title": "Workflow Orchestration with Airflow",
+   "course": "ETL Development & Orchestration",
+   "youtube_video_id": "s-r2gEr7YW4",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 2451
+  },
+  {
+   "lesson_id": "0241a6e1-a3fa-4b07-9fe0-27aff2057bec",
+   "lesson_title": "End-to-End ETL Pipeline Build",
+   "course": "ETL Development & Orchestration",
+   "youtube_video_id": "BgiOmkXgpno",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 6530
+  },
+  {
+   "lesson_id": "747a39e7-260a-4f2c-93df-dee277702f7b",
+   "lesson_title": "BI Domain & Business Fundamentals",
+   "course": "BI Analytics & Reporting",
+   "youtube_video_id": "NjA41hhnr18",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 690
+  },
+  {
+   "lesson_id": "429569e9-c1a9-4e3a-a38b-19b9b8290408",
+   "lesson_title": "Requirements Gathering & KPI Definition",
+   "course": "BI Analytics & Reporting",
+   "youtube_video_id": "zFyEOX9DdsI",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 155
+  },
+  {
+   "lesson_id": "4c58e3b9-437f-4682-88d7-b7543af2a0f4",
+   "lesson_title": "SQL for Data Analysts",
+   "course": "BI Analytics & Reporting",
+   "youtube_video_id": "zpAGbu9mSL4",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 9962
+  },
+  {
+   "lesson_id": "42755e02-09ad-40a5-a45c-41432c770d64",
+   "lesson_title": "Data Transformation with Power Query",
+   "course": "BI Analytics & Reporting",
+   "youtube_video_id": "QXzopqpHlSs",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 1687
+  },
+  {
+   "lesson_id": "051a39a0-6ce2-4e7d-84ec-01faef3d0abb",
+   "lesson_title": "Data Modeling & Star Schema",
+   "course": "BI Analytics & Reporting",
+   "youtube_video_id": "wKKxBjOJW3M",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 585
+  },
+  {
+   "lesson_id": "7a97b81a-32dc-4e73-bb54-4ce7f5e07cbd",
+   "lesson_title": "Business Calculations with DAX",
+   "course": "BI Analytics & Reporting",
+   "youtube_video_id": "rKreQw9JGvo",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 1720
+  },
+  {
+   "lesson_id": "4971707a-dfbc-4dc1-b087-235eef97e8d5",
+   "lesson_title": "Dashboard UI & Data Storytelling",
+   "course": "BI Analytics & Reporting",
+   "youtube_video_id": "HuZiJ44_71M",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 607
+  },
+  {
+   "lesson_id": "15427734-2a98-47f1-bae1-7bdaeda30729",
+   "lesson_title": "End-to-End BI Capstone & Publishing",
+   "course": "BI Analytics & Reporting",
+   "youtube_video_id": "WdCltDhmRLo",
+   "previous_duration_seconds": 0,
+   "duration_seconds": 2754
+  },
+  {
+   "lesson_id": "f0206c01-0300-0000-0000-000000000000",
+   "lesson_title": "Descriptive vs Inferential Statistics",
+   "course": "Statistics for Data & Analytics",
+   "youtube_video_id": "OqoWtOvD8w0",
+   "previous_duration_seconds": 720,
+   "duration_seconds": 241
+  },
+  {
+   "lesson_id": "f0206c01-0500-0000-0000-000000000000",
+   "lesson_title": "Data Types & Levels of Measurement",
+   "course": "Statistics for Data & Analytics",
+   "youtube_video_id": "T6vmlqCWxKM",
+   "previous_duration_seconds": 720,
+   "duration_seconds": 4681
+  },
+  {
+   "lesson_id": "f0206c01-0200-0000-0000-000000000000",
+   "lesson_title": "Why Statistics Matters in Data & Analytics",
+   "course": "Statistics for Data & Analytics",
+   "youtube_video_id": "KlGb_Q1yNiY",
+   "previous_duration_seconds": 600,
+   "duration_seconds": 514
+  },
+  {
+   "lesson_id": "0d7910b6-4e86-4528-a74a-c51b3c0feb34",
+   "lesson_title": "Window Functions for Advanced Data Analytics",
+   "course": "SQL & Relational Databases",
+   "youtube_video_id": "b5VAPGy6FqM",
+   "previous_duration_seconds": 900,
+   "duration_seconds": 1871
+  },
+  {
+   "lesson_id": "ce247387-108f-497c-815c-896f5aaf9c5c",
+   "lesson_title": "Understanding Data Models: Core Concepts & Fundamentals",
+   "course": "Data & Database Fundamentals",
+   "youtube_video_id": "mPnnygpy2lY",
+   "previous_duration_seconds": 600,
+   "duration_seconds": 566
+  },
+  {
+   "lesson_id": "79bc2a7c-51c0-45e5-8a00-5437dfcd9a53",
+   "lesson_title": "Automating Data Processing with Python & GenAI",
+   "course": "Python Programming Fundamentals",
+   "youtube_video_id": "sqsU-U5Pv50",
+   "previous_duration_seconds": 900,
+   "duration_seconds": 1087
+  },
+  {
+   "lesson_id": "45e67dd8-4fab-47b3-8be7-283ddfd49d48",
+   "lesson_title": "Practical Data Querying Case Study",
+   "course": "SQL & Relational Databases",
+   "youtube_video_id": "pGT4SqT8iKg",
+   "previous_duration_seconds": 900,
+   "duration_seconds": 4544
+  },
+  {
+   "lesson_id": "27a6b945-1ed5-41c3-aa54-cda096c28062",
+   "lesson_title": "Relational Database Refresher: Core Concepts & Fundamentals",
+   "course": "SQL & Relational Databases",
+   "youtube_video_id": "GfoqC_7ZmuQ",
+   "previous_duration_seconds": 600,
+   "duration_seconds": 2119
+  }
+ ]
+}

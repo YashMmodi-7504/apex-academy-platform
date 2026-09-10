@@ -27,6 +27,7 @@ import {
   Globe,
   Target
 } from 'lucide-react';
+import { formatLessonDuration } from '../../utils/duration.ts';
 
 export const CourseDetailPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -472,10 +473,10 @@ export const CourseDetailPage: React.FC = () => {
                                       Preview
                                     </span>
                                   )}
-                                  {lesson.duration_seconds > 0 && (
+                                  {formatLessonDuration(lesson.duration_seconds) && (
                                     <span className="text-slate-500 text-[11px] font-medium flex items-center gap-1">
                                       <Clock className="w-3 h-3" />
-                                      {Math.round(lesson.duration_seconds / 60)}m
+                                      {formatLessonDuration(lesson.duration_seconds)}
                                     </span>
                                   )}
                                   
