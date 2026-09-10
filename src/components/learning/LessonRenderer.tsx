@@ -15,6 +15,7 @@ import {
   Lightbulb,
   BookOpen,
   HelpCircle,
+  XCircle,
   Volume2,
   Settings
 } from 'lucide-react';
@@ -92,8 +93,16 @@ export const LessonRenderer: React.FC<LessonRendererProps> = ({
         const data = await res.json();
         if (data.success && data.checkpoint) {
           setCheckpoint(data.checkpoint);
-          if (data.checkpoint.previousAttempt) {
+          // A recorded answer is final: restore it as a locked result so a
+          // refresh or re-visit cannot return the question to an answerable
+          // state. `answered` is the server's authoritative lock flag.
+          if (data.checkpoint.answered && data.checkpoint.previousAttempt) {
             setSelectedOptionId(data.checkpoint.previousAttempt.selected_option_id);
+            setSubmissionResult({
+              is_correct: data.checkpoint.previousAttempt.is_correct,
+              explanation: data.checkpoint.explanation || '',
+              correct_option_id: data.checkpoint.correct_option_id,
+            });
           }
         } else {
           setCheckpoint(null);
@@ -105,6 +114,12 @@ export const LessonRenderer: React.FC<LessonRendererProps> = ({
 
     fetchCheckpoint();
   }, [lesson.id, courseSlug]);
+
+  // Only ever populated after submission: the server withholds
+  // correct_option_id until an answer has been recorded.
+  const correctOptionText = submissionResult?.correct_option_id
+    ? checkpoint?.options?.find((o: any) => o.id === submissionResult.correct_option_id)?.option_text
+    : undefined;
 
   const handleSubmitCheckpoint = async () => {
     if (!selectedOptionId || !checkpoint) return;
@@ -134,6 +149,15 @@ export const LessonRenderer: React.FC<LessonRendererProps> = ({
         if (data.is_correct && !isCompleted) {
           onCompleteLesson();
         }
+      } else if (data.already_answered) {
+        // The server rejected a second submission. Show the recorded outcome
+        // rather than an error, so the UI matches the stored answer.
+        if (data.selected_option_id) setSelectedOptionId(data.selected_option_id);
+        setSubmissionResult({
+          is_correct: Boolean(data.is_correct),
+          explanation: data.explanation || '',
+          correct_option_id: data.correct_option_id
+        });
       }
     } catch (err) {
       console.error('Failed to submit checkpoint attempt:', err);
@@ -504,23 +528,46 @@ export const LessonRenderer: React.FC<LessonRendererProps> = ({
                 className="px-4 py-2 rounded-lg text-white text-xs font-semibold transition-all hover:opacity-90 disabled:opacity-50"
                 style={{ background: '#4f46e5' }}
               >
-                {isSubmittingCheckpoint ? 'Checking...' : 'Check Answer'}
+                {isSubmittingCheckpoint ? 'Submitting…' : 'Submit Answer'}
               </button>
             </div>
           ) : (
-            <div className={`p-4 rounded-xl text-xs space-y-2 border ${submissionResult.is_correct ? 'bg-emerald-50 border-emerald-200 text-emerald-950' : 'bg-amber-50 border-amber-200 text-amber-950'
-              }`}>
-              <div className="font-semibold flex items-center justify-between">
-                <span>{submissionResult.is_correct ? 'CORRECT ✓' : 'NOT QUITE'}</span>
-                <button
-                  type="button"
-                  onClick={() => setSubmissionResult(null)}
-                  className="text-[11px] underline font-bold"
-                >
-                  Try Again
-                </button>
+            <div
+              role="status"
+              className={`space-y-2 rounded-xl border p-4 text-xs ${
+                submissionResult.is_correct
+                  ? 'border-emerald-200 bg-emerald-50 text-emerald-950'
+                  : 'border-rose-200 bg-rose-50 text-rose-950'
+              }`}
+            >
+              <div className="flex items-center gap-1.5 font-semibold">
+                {submissionResult.is_correct ? (
+                  <>
+                    <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-600" />
+                    <span>Correct</span>
+                  </>
+                ) : (
+                  <>
+                    <XCircle className="h-4 w-4 shrink-0 text-rose-600" />
+                    <span>Incorrect</span>
+                  </>
+                )}
               </div>
-              <p className="leading-relaxed font-medium">{submissionResult.explanation}</p>
+
+              {!submissionResult.is_correct && correctOptionText && (
+                <p className="leading-relaxed">
+                  <span className="font-semibold">Correct answer: </span>
+                  {correctOptionText}
+                </p>
+              )}
+
+              {submissionResult.explanation && (
+                <p className="font-medium leading-relaxed">{submissionResult.explanation}</p>
+              )}
+
+              <p className="pt-1 text-[11px] font-medium opacity-80">
+                Answer recorded. Each question allows one submission.
+              </p>
             </div>
           )}
         </div>

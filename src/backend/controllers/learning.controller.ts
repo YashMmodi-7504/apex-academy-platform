@@ -358,7 +358,7 @@ export async function getLessonCheckpointHandler(req: AuthenticatedRequest, res:
     return;
   }
 
-  const checkpoint = getStudentCheckpoint(lessonId, userId);
+  const checkpoint = await getStudentCheckpoint(lessonId, userId);
   if (!checkpoint) {
     res.json({ success: true, checkpoint: null });
     return;
@@ -385,9 +385,13 @@ export async function submitCheckpointAttemptHandler(req: AuthenticatedRequest, 
     return;
   }
 
-  const result = submitStudentAttempt(userId, lessonId, selected_option_id);
+  const result = await submitStudentAttempt(userId, lessonId, selected_option_id);
   if (!result.success) {
-    res.status(400).json({ success: false, error: result.error });
+    // 409 marks an already-answered question; the body still carries the
+    // recorded outcome so the UI can render the locked result rather than an
+    // error. Any other failure keeps its own status.
+    const status = (result as any).status || 400;
+    res.status(status).json(result);
     return;
   }
 

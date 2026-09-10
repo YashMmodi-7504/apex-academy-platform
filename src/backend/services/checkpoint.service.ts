@@ -1,4 +1,5 @@
 import { v4 as uuidv4, v5 as uuidv5 } from 'uuid';
+import { supabaseAdmin } from '../database/supabaseAdmin.ts';
 
 const NAMESPACE = '6ba7b810-9dad-11d1-80b4-00c04fd430c8';
 
@@ -565,62 +566,198 @@ rawCheckpoints.forEach((raw) => {
   };
 });
 
+const ATTEMPTS_TABLE = 'student_checkpoint_attempts';
+
 /**
- * Get checkpoint for student (STRICTLY STRIPS IS_CORRECT & EXPLANATION)
+ * True when the failure means the attempts table has not been created yet
+ * (migration 00009 not applied). Any other error is a real error.
  */
-export function getStudentCheckpoint(lessonId: string, userId: string) {
+function isMissingTable(error: any): boolean {
+  if (!error) return false;
+  const msg = String(error.message || '');
+  return error.code === 'PGRST205' || /Could not find the table/i.test(msg);
+}
+
+/** Postgres unique-violation: the learner already answered this question. */
+function isDuplicate(error: any): boolean {
+  return error?.code === '23505';
+}
+
+/**
+ * Fallback store, used only while migration 00009 is unapplied. It is
+ * per-instance and lost on cold start, so it cannot be relied on. It exists so
+ * that deploying this code before running the migration degrades instead of
+ * erroring for learners.
+ */
+const attemptsStoreFallback: StudentAttempt[] = attemptsStore;
+
+/**
+ * Deterministic per-learner option order.
+ *
+ * Every question in the bank stores its correct option first, so a fixed
+ * display order let a learner score full marks by always choosing option A.
+ * The order below is derived from (userId, checkpointId): stable across
+ * refreshes for one learner, different between learners. The stored answer key
+ * is untouched, and grading always resolves against is_correct server-side.
+ */
+function orderOptionsForUser(
+  options: CheckpointOption[],
+  userId: string,
+  checkpointId: string
+): CheckpointOption[] {
+  const seedStr = userId + ':' + checkpointId;
+  let seed = 0;
+  for (let i = 0; i < seedStr.length; i++) seed = (seed * 31 + seedStr.charCodeAt(i)) >>> 0;
+  // xorshift32 keeps the shuffle deterministic without adding a dependency.
+  const next = () => {
+    seed ^= seed << 13; seed >>>= 0;
+    seed ^= seed >> 17;
+    seed ^= seed << 5;  seed >>>= 0;
+    return seed / 0x100000000;
+  };
+  const arr = options.slice();
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(next() * (i + 1));
+    const t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+  }
+  return arr.map((o, i) => ({ ...o, display_order: i + 1 }));
+}
+
+/** Read this learner's recorded attempt, if any. */
+async function findAttempt(userId: string, checkpointId: string): Promise<StudentAttempt | null> {
+  const { data, error } = await supabaseAdmin
+    .from(ATTEMPTS_TABLE)
+    .select('id,user_id,checkpoint_id,selected_option_id,is_correct,attempted_at')
+    .eq('user_id', userId)
+    .eq('checkpoint_id', checkpointId)
+    .maybeSingle();
+
+  if (error) {
+    if (!isMissingTable(error)) {
+      console.error('[checkpoint] attempt lookup failed:', error.message);
+    }
+    return attemptsStoreFallback.find(
+      (a) => a.user_id === userId && a.checkpoint_id === checkpointId
+    ) || null;
+  }
+  return (data as StudentAttempt) || null;
+}
+
+/**
+ * Get checkpoint for student.
+ *
+ * Never returns is_correct or the explanation for an unanswered question:
+ * those are revealed only once an answer has been permanently recorded.
+ */
+export async function getStudentCheckpoint(lessonId: string, userId: string) {
   const cp = checkpointsMap[lessonId];
   if (!cp) return null;
 
-  // Find previous attempt
-  const previousAttempt = attemptsStore.slice().reverse().find(a => a.user_id === userId && a.checkpoint_id === cp.id);
+  const previousAttempt = await findAttempt(userId, cp.id);
+  const answered = Boolean(previousAttempt);
+  const correctOption = cp.options.find((o) => o.is_correct);
 
   return {
     id: cp.id,
     lesson_id: cp.lesson_id,
     question: cp.question,
     question_type: cp.question_type,
-    options: cp.options.map(o => ({
+    options: orderOptionsForUser(cp.options, userId, cp.id).map((o) => ({
       id: o.id,
       option_text: o.option_text,
-      display_order: o.display_order
+      display_order: o.display_order,
     })),
-    previousAttempt: previousAttempt ? {
-      selected_option_id: previousAttempt.selected_option_id,
-      is_correct: previousAttempt.is_correct,
-      attempted_at: previousAttempt.attempted_at
-    } : null
+    // Authoritative lock flag. The UI must not offer another submission when
+    // this is true, and the server rejects one regardless.
+    answered,
+    previousAttempt: previousAttempt
+      ? {
+          selected_option_id: previousAttempt.selected_option_id,
+          is_correct: previousAttempt.is_correct,
+          attempted_at: previousAttempt.attempted_at,
+        }
+      : null,
+    // Revealed only after the answer has been committed.
+    correct_option_id: answered ? correctOption?.id : undefined,
+    explanation: answered ? cp.explanation : undefined,
   };
 }
 
 /**
- * Submit checkpoint attempt (SERVER-SIDE ANSWER VALIDATION)
+ * Submit a checkpoint attempt.
+ *
+ * One scored response per question: the first submitted answer is final.
+ * Correctness is resolved from the server's own option data, never from the
+ * request, and the UNIQUE (user_id, checkpoint_id) constraint rejects any
+ * second submission, so the browser cannot retry its way to a correct answer.
  */
-export function submitStudentAttempt(userId: string, lessonId: string, selectedOptionId: string) {
+export async function submitStudentAttempt(
+  userId: string,
+  lessonId: string,
+  selectedOptionId: string
+) {
   const cp = checkpointsMap[lessonId];
-  if (!cp) return { success: false, error: 'No checkpoint found for this lesson.' };
+  if (!cp) return { success: false, error: 'No checkpoint found for this lesson.', status: 404 };
 
-  const selectedOpt = cp.options.find(o => o.id === selectedOptionId);
-  if (!selectedOpt) return { success: false, error: 'Invalid option selected.' };
+  const selectedOpt = cp.options.find((o) => o.id === selectedOptionId);
+  if (!selectedOpt) return { success: false, error: 'Invalid option selected.', status: 400 };
 
+  const correctOption = cp.options.find((o) => o.is_correct);
   const isCorrect = selectedOpt.is_correct === true;
-  const correctOption = cp.options.find(o => o.is_correct);
 
-  const attempt: StudentAttempt = {
-    id: uuidv5(`att_${userId}_${cp.id}_${Date.now()}`, NAMESPACE),
+  // Reject before writing when a recorded answer is already visible.
+  const existing = await findAttempt(userId, cp.id);
+  if (existing) {
+    return {
+      success: false,
+      error: 'This question has already been answered. Each question allows one submission.',
+      status: 409,
+      already_answered: true,
+      is_correct: existing.is_correct,
+      selected_option_id: existing.selected_option_id,
+      correct_option_id: correctOption?.id,
+      explanation: cp.explanation,
+    };
+  }
+
+  const row = {
     user_id: userId,
     checkpoint_id: cp.id,
+    lesson_id: lessonId,
     selected_option_id: selectedOptionId,
     is_correct: isCorrect,
-    attempted_at: new Date().toISOString()
+    attempted_at: new Date().toISOString(),
   };
 
-  attemptsStore.push(attempt);
+  const { error } = await supabaseAdmin.from(ATTEMPTS_TABLE).insert(row);
+
+  if (error) {
+    // The constraint is the real guard against two concurrent submissions;
+    // whichever loses is reported as already answered.
+    if (isDuplicate(error)) {
+      return {
+        success: false,
+        error: 'This question has already been answered. Each question allows one submission.',
+        status: 409,
+        already_answered: true,
+        correct_option_id: correctOption?.id,
+        explanation: cp.explanation,
+      };
+    }
+    if (isMissingTable(error)) {
+      console.warn('[checkpoint] attempts table missing; recording in memory only (apply migration 00009).');
+      attemptsStoreFallback.push({ id: uuidv5('att_' + userId + '_' + cp.id, NAMESPACE), ...row });
+    } else {
+      console.error('[checkpoint] attempt insert failed:', error.message);
+      return { success: false, error: 'Could not record your answer. Please try again.', status: 500 };
+    }
+  }
 
   return {
     success: true,
     is_correct: isCorrect,
+    selected_option_id: selectedOptionId,
     correct_option_id: correctOption?.id,
-    explanation: cp.explanation
+    explanation: cp.explanation,
   };
 }
